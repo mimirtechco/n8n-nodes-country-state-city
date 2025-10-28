@@ -10,7 +10,7 @@ import Country from 'country-state-city/lib/country';
 import State from 'country-state-city/lib/state';
 import City from 'country-state-city/lib/city';
 
-export class CountryStateCity implements INodeType {
+export default class CountryStateCity implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Country State City',
 		name: 'countryStateCity',
