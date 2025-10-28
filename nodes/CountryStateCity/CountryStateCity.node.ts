@@ -5,12 +5,11 @@ import {
 	INodeTypeDescription,
 	IDataObject,
 } from 'n8n-workflow';
-import { ICountry, IState, ICity } from 'country-state-city';
-import Country from 'country-state-city/lib/country';
-import State from 'country-state-city/lib/state';
-import City from 'country-state-city/lib/city';
 
-export default class CountryStateCity implements INodeType {
+// Importações compatíveis com CommonJS
+const { Country, State, City } = require('country-state-city');
+
+export class CountryStateCity implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Country State City',
 		name: 'countryStateCity',
@@ -87,7 +86,7 @@ export default class CountryStateCity implements INodeType {
 			const countryCode = this.getNodeParameter('countryCode', itemIndex, '') as string;
 			const stateCode = this.getNodeParameter('stateCode', itemIndex, '') as string;
 
-			let result: ICountry | IState[] | ICity[] | undefined | null = null;
+			let result: any = null;
 
 			if (operation === 'getCountryByCode') {
 				result = Country.getCountryByCode(countryCode);
