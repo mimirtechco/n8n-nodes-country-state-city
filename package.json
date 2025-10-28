@@ -1,6 +1,6 @@
 {
-  "name": "n8n-nodes-country-state-city",
-  "version": "0.1.3",
+  "name": "@mimirtech/n8n-nodes-country-state-city",
+  "version": "0.3.0",
   "description": "n8n node for country-state-city",
   "license": "MIT",
   "homepage": "https://docs.n8n.io/integrations/community-nodes/",
