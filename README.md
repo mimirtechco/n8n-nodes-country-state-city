@@ -12,10 +12,15 @@ npm install n8n-nodes-country-state-city
 
 ## Operações
 
-### 🌍 Get Country by Code
-Retorna os detalhes de um país com base no seu código ISO 2.
+### 🌍 Get Country by Code (ISO2)
+Retorna os detalhes de um país com base no seu código ISO2 (2 letras).
 - **Input**: Country Code (ex: `US`, `BR`, `CA`)
 - **Output**: Nome, código ISO, coordenadas, etc.
+
+### 🌎 Get Country by ISO3 Code 
+Retorna os detalhes de um país com base no seu código ISO3 (3 letras).
+- **Input**: Country ISO3 Code (ex: `USA`, `BRA`, `CAN`)
+- **Output**: Nome, códigos ISO2 e ISO3, coordenadas, etc.
 
 ### 🏛️ Get States by Country  
 Retorna uma lista de todos os estados/províncias de um determinado país.
@@ -42,9 +47,17 @@ Retorna uma lista de todas as cidades de um determinado estado/província.
 
 ## Exemplos de Uso
 
-### Obter informações do Brasil
+### Obter informações do Brasil (ISO2)
 - Operation: `Get Country by Code`
 - Country Code: `BR`
+
+### Obter informações do Brasil (ISO3)
+- Operation: `Get Country by ISO3 Code`
+- Country ISO3 Code: `BRA`
+
+### Obter informações dos Estados Unidos (ISO3)
+- Operation: `Get Country by ISO3 Code`
+- Country ISO3 Code: `USA`
 
 ### Listar estados do Brasil  
 - Operation: `Get States by Country`
@@ -59,6 +72,21 @@ Retorna uma lista de todas as cidades de um determinado estado/província.
 - Operation: `Get Cities by State`
 - Country Code: `BR`
 - State Code: `SP`
+
+## Códigos Suportados
+
+### ISO2 vs ISO3
+| País | ISO2 | ISO3 | 
+|------|------|------|
+| Brasil | `BR` | `BRA` |
+| Estados Unidos | `US` | `USA` |
+| Canadá | `CA` | `CAN` |
+| Reino Unido | `GB` | `GBR` |
+| França | `FR` | `FRA` |
+| Alemanha | `DE` | `DEU` |
+| Japão | `JP` | `JPN` |
+
+> **Nota**: Ambos os formatos são suportados - use ISO2 para operações de estado/cidade, e ISO2 ou ISO3 para busca de países.
 
 ## Changelog
 
