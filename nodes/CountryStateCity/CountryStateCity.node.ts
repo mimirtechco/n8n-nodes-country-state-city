@@ -32,14 +32,22 @@ export class CountryStateCity implements INodeType {
 					{
 						name: 'Get Country by Code',
 						value: 'getCountryByCode',
+						description: 'Get detailed information about a country by its ISO code',
 					},
 					{
 						name: 'Get States by Country',
 						value: 'getStatesByCountry',
+						description: 'Get all states/provinces of a specific country',
+					},
+					{
+						name: 'Get State by Code',
+						value: 'getStateByCode',
+						description: 'Get detailed information about a specific state by country and state code',
 					},
 					{
 						name: 'Get Cities by State',
 						value: 'getCitiesByState',
+						description: 'Get all cities of a specific state/province',
 					},
 				],
 				default: 'getCountryByCode',
@@ -50,11 +58,14 @@ export class CountryStateCity implements INodeType {
 				type: 'string',
 				default: '',
 				required: true,
+				placeholder: 'e.g., US, BR, CA',
+				description: 'ISO 3166-1 alpha-2 country code',
 				displayOptions: {
 					show: {
 						operation: [
 							'getCountryByCode',
 							'getStatesByCountry',
+							'getStateByCode',
 							'getCitiesByState',
 						],
 					},
@@ -66,9 +77,12 @@ export class CountryStateCity implements INodeType {
 				type: 'string',
 				default: '',
 				required: true,
+				placeholder: 'e.g., CA, NY, SP',
+				description: 'State/Province ISO code',
 				displayOptions: {
 					show: {
 						operation: [
+							'getStateByCode',
 							'getCitiesByState',
 						],
 					},
@@ -92,6 +106,8 @@ export class CountryStateCity implements INodeType {
 				result = Country.getCountryByCode(countryCode);
 			} else if (operation === 'getStatesByCountry') {
 				result = State.getStatesOfCountry(countryCode);
+			} else if (operation === 'getStateByCode') {
+				result = State.getStateByCodeAndCountry(stateCode, countryCode);
 			} else if (operation === 'getCitiesByState') {
 				result = City.getCitiesOfState(countryCode, stateCode);
 			}
