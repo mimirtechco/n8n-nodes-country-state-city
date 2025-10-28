@@ -18,7 +18,7 @@
     "city"
   ],
   "engines": {
-    "node": ">=18.10",
+    "node": ">=20",
     "pnpm": ">=8.6"
   },
   "packageManager": "pnpm@8.6.2",
