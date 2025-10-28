@@ -20,7 +20,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "format": "prettier --write nodes credentials"
+    "format": "prettier --write nodes credentials",
+    "sync-version": "git describe --tags --abbrev=0 | sed 's/^v//' | xargs npm version --no-git-tag-version",
+    "release": "npm run sync-version && npm run build"
   },
   "files": [
     "dist"
