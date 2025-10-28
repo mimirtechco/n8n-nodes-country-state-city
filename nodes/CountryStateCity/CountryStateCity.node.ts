@@ -9,6 +9,9 @@ import {
 // Importações compatíveis com CommonJS
 const { Country, State, City } = require('country-state-city');
 
+// Importar mapeamentos ISO
+import { ISO3_TO_ISO2_MAPPING } from './iso-mappings';
+
 export class CountryStateCity implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Country State City',
@@ -32,7 +35,12 @@ export class CountryStateCity implements INodeType {
 					{
 						name: 'Get Country by Code',
 						value: 'getCountryByCode',
-						description: 'Get detailed information about a country by its ISO code',
+						description: 'Get detailed information about a country by its ISO2 code (2 letters)',
+					},
+					{
+						name: 'Get Country by ISO3 Code',
+						value: 'getCountryByISO3Code',
+						description: 'Get detailed information about a country by its ISO3 code (3 letters)',
 					},
 					{
 						name: 'Get States by Country',
@@ -59,7 +67,7 @@ export class CountryStateCity implements INodeType {
 				default: '',
 				required: true,
 				placeholder: 'e.g., US, BR, CA',
-				description: 'ISO 3166-1 alpha-2 country code',
+				description: 'ISO 3166-1 alpha-2 country code (2 letters)',
 				displayOptions: {
 					show: {
 						operation: [
@@ -67,6 +75,22 @@ export class CountryStateCity implements INodeType {
 							'getStatesByCountry',
 							'getStateByCode',
 							'getCitiesByState',
+						],
+					},
+				},
+			},
+			{
+				displayName: 'Country ISO3 Code',
+				name: 'countryISO3Code',
+				type: 'string',
+				default: '',
+				required: true,
+				placeholder: 'e.g., USA, BRA, CAN',
+				description: 'ISO 3166-1 alpha-3 country code (3 letters)',
+				displayOptions: {
+					show: {
+						operation: [
+							'getCountryByISO3Code',
 						],
 					},
 				},
@@ -98,12 +122,25 @@ export class CountryStateCity implements INodeType {
 		for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
 			const operation = this.getNodeParameter('operation', itemIndex, '') as string;
 			const countryCode = this.getNodeParameter('countryCode', itemIndex, '') as string;
+			const countryISO3Code = this.getNodeParameter('countryISO3Code', itemIndex, '') as string;
 			const stateCode = this.getNodeParameter('stateCode', itemIndex, '') as string;
 
 			let result: any = null;
 
 			if (operation === 'getCountryByCode') {
 				result = Country.getCountryByCode(countryCode);
+			} else if (operation === 'getCountryByISO3Code') {
+				// Converter ISO3 para ISO2 e buscar o país
+				const iso2Code = ISO3_TO_ISO2_MAPPING[countryISO3Code.toUpperCase()];
+				if (iso2Code) {
+					result = Country.getCountryByCode(iso2Code);
+					// Adicionar o código ISO3 ao resultado
+					if (result) {
+						result = { ...result, iso3Code: countryISO3Code.toUpperCase() };
+					}
+				} else {
+					throw new Error(`Invalid ISO3 country code: ${countryISO3Code}`);
+				}
 			} else if (operation === 'getStatesByCountry') {
 				result = State.getStatesOfCountry(countryCode);
 			} else if (operation === 'getStateByCode') {
