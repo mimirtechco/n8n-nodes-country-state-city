@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.3] - 2025-10-28
+## [0.3.0] - 2025-10-28
 
 ### Added
 - **New Operation**: "Get Country by ISO3 Code" - Support for 3-letter country codes
