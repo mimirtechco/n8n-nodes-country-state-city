@@ -6,12 +6,14 @@
 
 An n8n community node package that provides functionality to query information about countries, states/provinces, and cities using the [country-state-city](https://github.com/dr5hn/country-state-city) library.
 
+* Repository: https://github.com/mimirtechco/n8n-nodes-country-state-city
+
 ## Installation
 
 Follow the instructions in the [n8n documentation](https://docs.n8n.io/integrations/community-nodes/installation/) to install community nodes.
 
 ```bash
-npm install n8n-nodes-country-state-city
+npm install @mimirtech/n8n-nodes-country-state-city
 ```
 
 ## Operations
@@ -95,6 +97,10 @@ Returns a list of all cities in a specific state/province.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for the complete change history.
+
+## Maintainer
+
+[Mimir Tech](https://www.mimirtech.co)
 
 ## License
 
