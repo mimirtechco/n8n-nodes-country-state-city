@@ -1,8 +1,8 @@
 # n8n-nodes-country-state-city
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/n8n-nodes-country-state-city.svg)](https://badge.fury.io/js/n8n-nodes-country-state-city)
-[![npm downloads](https://img.shields.io/npm/dm/n8n-nodes-country-state-city)](https://www.npmjs.com/package/n8n-nodes-country-state-city)
+[![npm version](https://badge.fury.io/js/@mimirtech%2Fn8n-nodes-country-state-city.svg)](https://badge.fury.io/js/@mimirtech%2Fn8n-nodes-country-state-city)
+[![npm downloads](https://img.shields.io/npm/dm/@mimirtech/n8n-nodes-country-state-city)](https://www.npmjs.com/package/@mimirtech/n8n-nodes-country-state-city)
 
 An n8n community node package that provides functionality to query information about countries, states/provinces, and cities using the [country-state-city](https://github.com/dr5hn/country-state-city) library.
 
