@@ -77,3 +77,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [0.2.0]: https://github.com/mimirtechco/n8n-nodes-country-state-city/releases/tag/v0.2.0
 - [0.1.0]: https://github.com/mimirtechco/n8n-nodes-country-state-city/releases/tag/v0.1.0
 - [Unreleased]: https://github.com/mimirtechco/n8n-nodes-country-state-city/compare/v0.1.3...HEAD
+
+n8n, n8n-community-nodes, n8n-nodes, country-data, country-state-city, geography, iso-codes, workflow-automation, offline-data, no-api-keys, typescript
